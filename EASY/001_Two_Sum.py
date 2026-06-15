@@ -1,59 +1,61 @@
-# LeetCode 35
-# Search Insert Position
+# LeetCode 58
+# Length of Last Word
 # Difficulty: Easy
-# Link: https://leetcode.com/problems/search-insert-position/
+# Link: https://leetcode.com/problems/length-of-last-word/
 
 # Problem:
-# Given a sorted array of distinct integers and a target value,
-# return the index if the target is found.
-# If not, return the index where it would be inserted
-# in order to maintain the sorted order.
+# Given a string s consisting of words and spaces,
+# return the length of the last word in the string.
 #
-# You must write an algorithm with O(log n) runtime complexity.
+# A word is a maximal substring consisting of
+# non-space characters only.
 
 # Example 1:
-# Input: nums = [1,3,5,6], target = 5
-# Output: 2
+# Input: s = "Hello World"
+# Output: 5
+# Explanation:
+# The last word is "World" with length 5.
 
 # Example 2:
-# Input: nums = [1,3,5,6], target = 2
-# Output: 1
+# Input: s = "   fly me   to   the moon  "
+# Output: 4
+# Explanation:
+# The last word is "moon" with length 4.
 
 # Example 3:
-# Input: nums = [1,3,5,6], target = 7
-# Output: 4
+# Input: s = "luffy is still joyboy"
+# Output: 6
+# Explanation:
+# The last word is "joyboy" with length 6.
 
 # Approach:
-# Since the array is sorted, Binary Search can be used
-# to efficiently locate the target.
+# Traverse the string from right to left.
 #
-# - Initialize two pointers: left and right.
-# - Find the middle element of the current search range.
-# - If the target matches the middle element,
-#   return its index.
-# - If the target is greater, search the right half.
-# - Otherwise, search the left half.
-# - When the search ends, the left pointer indicates
-#   the correct insertion position.
+# - Ignore trailing spaces by finding the first
+#   non-space character from the end.
+# - Store its index as the end of the last word.
+# - Continue moving left until a space is found.
+# - The difference between the end index and the
+#   space index gives the length of the last word.
+# - If no space is encountered, the entire string
+#   up to the end index is the last word.
 #
-# This satisfies the required O(log n) runtime complexity.
+# This approach avoids using extra space and
+# processes the string in a single reverse traversal.
 
-# Time Complexity: O(log n)
+# Time Complexity: O(n)
 # Space Complexity: O(1)
 
 class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        l = 0
-        r = len(nums) - 1
+    def lengthOfLastWord(self, s: str) -> int:
+        j = -1
 
-        while l <= r:
-            m = (l + r) // 2
+        for i in range(len(s) - 1, -1, -1):
 
-            if nums[m] == target:
-                return m
-            elif nums[m] < target:
-                l = m + 1
-            else:
-                r = m - 1
+            if s[i] != ' ' and j == -1:
+                j = i
 
-        return l
+            elif s[i] == ' ' and j != -1:
+                return j - i
+
+        return j + 1
