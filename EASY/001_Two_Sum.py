@@ -1,61 +1,71 @@
-# LeetCode 58
-# Length of Last Word
+# LeetCode 66
+# Plus One
 # Difficulty: Easy
-# Link: https://leetcode.com/problems/length-of-last-word/
+# Link: https://leetcode.com/problems/plus-one/
 
 # Problem:
-# Given a string s consisting of words and spaces,
-# return the length of the last word in the string.
+# You are given a large integer represented as an integer array digits,
+# where each digits[i] is the ith digit of the integer.
 #
-# A word is a maximal substring consisting of
-# non-space characters only.
+# The digits are ordered from most significant to least significant
+# in left-to-right order. The large integer does not contain any
+# leading zeros.
+#
+# Increment the large integer by one and return the resulting array
+# of digits.
 
 # Example 1:
-# Input: s = "Hello World"
-# Output: 5
-# Explanation:
-# The last word is "World" with length 5.
+# Input: digits = [1,2,3]
+# Output: [1,2,4]
 
 # Example 2:
-# Input: s = "   fly me   to   the moon  "
-# Output: 4
-# Explanation:
-# The last word is "moon" with length 4.
+# Input: digits = [4,3,2,1]
+# Output: [4,3,2,2]
 
 # Example 3:
-# Input: s = "luffy is still joyboy"
-# Output: 6
-# Explanation:
-# The last word is "joyboy" with length 6.
+# Input: digits = [9]
+# Output: [1,0]
 
 # Approach:
-# Traverse the string from right to left.
+# Reverse the array so that we can process digits
+# from least significant to most significant.
 #
-# - Ignore trailing spaces by finding the first
-#   non-space character from the end.
-# - Store its index as the end of the last word.
-# - Continue moving left until a space is found.
-# - The difference between the end index and the
-#   space index gives the length of the last word.
-# - If no space is encountered, the entire string
-#   up to the end index is the last word.
+# - Initialize a carry with value 1 since we need
+#   to add one to the number.
+# - If the current digit is 9, change it to 0 and
+#   keep the carry.
+# - Otherwise, increment the digit and stop the process.
+# - If all digits become 0, append 1 to handle the
+#   remaining carry.
+# - Reverse the array back before returning.
 #
-# This approach avoids using extra space and
-# processes the string in a single reverse traversal.
+# This simulates the way addition is performed manually.
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Space Complexity: O(n)
 
 class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        j = -1
+    def plusOne(self, digits: List[int]) -> List[int]:
+        digits = digits[::-1]
 
-        for i in range(len(s) - 1, -1, -1):
+        carry = 1
+        i = 0
 
-            if s[i] != ' ' and j == -1:
-                j = i
+        while carry:
 
-            elif s[i] == ' ' and j != -1:
-                return j - i
+            if i < len(digits):
 
-        return j + 1
+                if digits[i] == 9:
+                    digits[i] = 0
+
+                else:
+                    digits[i] += 1
+                    carry = 0
+
+            else:
+                digits.append(1)
+                carry = 0
+
+            i += 1
+
+        return digits[::-1]
