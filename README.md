@@ -142,17 +142,17 @@ class Solution:
 | Day 10 | 35 | Search Insert Position | 🟢 Easy | [🔗 View](https://leetcode.com/problems/search-insert-position/) |
 | Day 11 | 58 | Length of Last Word | 🟢 Easy | [🔗 View](https://leetcode.com/problems/length-of-last-word/) |
 | Day 12 | 66 | Plus One | 🟢 Easy | [🔗 View](https://leetcode.com/problems/plus-one/) |
-
+| Day 13 | 67 | Add Binary | 🟢 Easy | [🔗 View](https://leetcode.com/problems/add-binary/) |
 ---
 
 ## Progress Tracker
 
 | Difficulty | Problems Solved |
 |------------|----------------|
-|  Easy | 12|
+|  Easy | 13 |
 |  Medium | 0 |
 |  Hard | 0 |
-| **TOTAL** | **12** |
+| **TOTAL** | **13** |
 
 ---
 
