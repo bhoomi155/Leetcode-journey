@@ -1,71 +1,59 @@
-# LeetCode 66
-# Plus One
+# LeetCode 67
+# Add Binary
 # Difficulty: Easy
-# Link: https://leetcode.com/problems/plus-one/
+# Link: https://leetcode.com/problems/add-binary/
 
 # Problem:
-# You are given a large integer represented as an integer array digits,
-# where each digits[i] is the ith digit of the integer.
+# Given two binary strings a and b, return their sum
+# as a binary string.
 #
-# The digits are ordered from most significant to least significant
-# in left-to-right order. The large integer does not contain any
-# leading zeros.
-#
-# Increment the large integer by one and return the resulting array
-# of digits.
+# The input strings consist only of characters '0' and '1'.
 
 # Example 1:
-# Input: digits = [1,2,3]
-# Output: [1,2,4]
+# Input: a = "11", b = "1"
+# Output: "100"
 
 # Example 2:
-# Input: digits = [4,3,2,1]
-# Output: [4,3,2,2]
-
-# Example 3:
-# Input: digits = [9]
-# Output: [1,0]
+# Input: a = "1010", b = "1011"
+# Output: "10101"
 
 # Approach:
-# Reverse the array so that we can process digits
-# from least significant to most significant.
+# Use two pointers starting from the end of both strings
+# since binary addition is performed from right to left.
 #
-# - Initialize a carry with value 1 since we need
-#   to add one to the number.
-# - If the current digit is 9, change it to 0 and
-#   keep the carry.
-# - Otherwise, increment the digit and stop the process.
-# - If all digits become 0, append 1 to handle the
-#   remaining carry.
-# - Reverse the array back before returning.
+# - Initialize a carry variable with 0.
+# - Add the current digits from both strings along with carry.
+# - Store total % 2 as the current binary digit.
+# - Update carry as total // 2.
+# - Continue until all digits and any remaining carry
+#   have been processed.
+# - Reverse the result before returning because digits
+#   are collected from right to left.
 #
-# This simulates the way addition is performed manually.
+# This simulates the way binary addition is performed manually.
 
-# Time Complexity: O(n)
-# Space Complexity: O(n)
+# Time Complexity: O(max(n, m))
+# Space Complexity: O(max(n, m))
 
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
-        digits = digits[::-1]
+    def addBinary(self, a: str, b: str) -> str:
+        i = len(a) - 1
+        j = len(b) - 1
+        carry = 0
+        result = []
 
-        carry = 1
-        i = 0
+        while i >= 0 or j >= 0 or carry:
+            total = carry
 
-        while carry:
+            if i >= 0:
+                total += int(a[i])
+                i -= 1
 
-            if i < len(digits):
+            if j >= 0:
+                total += int(b[j])
+                j -= 1
 
-                if digits[i] == 9:
-                    digits[i] = 0
+            result.append(str(total % 2))
+            carry = total // 2
 
-                else:
-                    digits[i] += 1
-                    carry = 0
-
-            else:
-                digits.append(1)
-                carry = 0
-
-            i += 1
-
-        return digits[::-1]
+        return ''.join(result[::-1])
