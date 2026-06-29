@@ -143,6 +143,7 @@ class Solution:
 | Day 11 | 58 | Length of Last Word | 🟢 Easy | [🔗 View](https://leetcode.com/problems/length-of-last-word/) |
 | Day 12 | 66 | Plus One | 🟢 Easy | [🔗 View](https://leetcode.com/problems/plus-one/) |
 | Day 13 | 67 | Add Binary | 🟢 Easy | [🔗 View](https://leetcode.com/problems/add-binary/) |
+| Day 14 | 189 | Rotate Array | 🟡 Medium | [🔗 View](https://leetcode.com/problems/rotate-array/) |
 ---
 
 ## Progress Tracker
@@ -150,9 +151,9 @@ class Solution:
 | Difficulty | Problems Solved |
 |------------|----------------|
 |  Easy | 13 |
-|  Medium | 0 |
+|  Medium | 1 |
 |  Hard | 0 |
-| **TOTAL** | **13** |
+| **TOTAL** | **14** |
 
 ---
 
