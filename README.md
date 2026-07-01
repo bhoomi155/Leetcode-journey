@@ -145,6 +145,7 @@ class Solution:
 | Day 13 | 67 | Add Binary | 🟢 Easy | [🔗 View](https://leetcode.com/problems/add-binary/) |
 | Day 14 | 189 | Rotate Array | 🟡 Medium | [🔗 View](https://leetcode.com/problems/rotate-array/) |
 | Day 15 | 53 | Maximum Subarray | 🟡 Medium | [🔗 View](https://leetcode.com/problems/maximum-subarray/) |
+| Day 16 | 152 | Maximum Product Subarray | 🟡 Medium | [🔗 View](https://leetcode.com/problems/maximum-product-subarray/) |
 
 
 ---
@@ -154,9 +155,9 @@ class Solution:
 | Difficulty | Problems Solved |
 |------------|----------------|
 |  Easy | 13 |
-|  Medium | 2 |
+|  Medium | 3 |
 |  Hard | 0 |
-| **TOTAL** | **15** |
+| **TOTAL** | **16** |
 
 ---
 
